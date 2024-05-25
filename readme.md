@@ -46,10 +46,10 @@ To get a local copy up and running, follow these simple steps.
 4. Run the executable:
   ./ContactManagementSystem
 
-###Usage
+## Usage
 Upon running the application, you will be presented with a menu to choose from the available functionalities. Select the desired option and follow the prompts to manage your contacts.
 
-###Contributing
+## Contributing
 If you would like to contribute to this project, please follow these steps:
 
 1. Fork the repository.
@@ -58,6 +58,6 @@ If you would like to contribute to this project, please follow these steps:
 4. Push to the branch (git push origin feature/YourFeature).
 5. Open a pull request.
 
-###Acknowledgements
+## Acknowledgements
 This project was initially based on the work available at https://github.com/JeremyWu917/ContactManagementSystem.git
 We thank the original author for their contributions.
