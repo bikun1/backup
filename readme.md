@@ -1,63 +1,41 @@
-# Contact Management System
+Để giải bài tập trong hình, chúng ta sẽ đi qua từng bước. Bài toán yêu cầu chứng minh rằng giá trị kỳ vọng của động lượng \(\langle \hat{p}_x \rangle = 0\) nếu \(\phi(x)\) là hàm thực đối với hạt ở trạng thái \(\psi(x) = \phi(x) e^{ip_0x/\hbar}\).
 
-This project is a Contact Management System written in C++. It allows users to manage their contacts efficiently. This application provides a range of functionalities including adding, displaying, deleting, searching, editing, sorting, and backing up contacts.
+1. **Hàm sóng và toán tử động lượng**:
+   - Hàm sóng được cho là \(\psi(x) = \phi(x) e^{ip_0x/\hbar}\).
+   - Toán tử động lượng trong cơ học lượng tử là \(\hat{p}_x = -i\hbar \frac{d}{dx}\).
 
-## Features
+2. **Giá trị kỳ vọng của động lượng**:
+   Giá trị kỳ vọng của động lượng \(\hat{p}_x\) được định nghĩa là:
+   \[
+   \langle \hat{p}_x \rangle = \int_{-\infty}^{\infty} \psi^*(x) \left( -i\hbar \frac{d}{dx} \right) \psi(x) \, dx
+   \]
+   Trong đó \(\psi^*(x)\) là liên hợp phức của \(\psi(x)\).
 
-The Contact Management System supports the following functionalities:
+3. **Tính toán \(\psi^*(x)\)**:
+   \[
+   \psi^*(x) = \phi^*(x) e^{-ip_0x/\hbar}
+   \]
+   Nếu \(\phi(x)\) là hàm thực thì \(\phi^*(x) = \phi(x)\).
 
-- **Add Contact**: Add a new contact to the list.
-- **Display Contacts**: Display all the contacts in the list.
-- **Delete Contact**: Delete a specific contact from the list.
-- **Search Contact**: Search for a contact by name.
-- **Edit Contact**: Edit the details of an existing contact.
-- **Delete All Contacts**: Remove all contacts from the list.
-- **Sort Contacts**: Sort contacts by name or age.
-- **Backup and Restore Contacts**: Backup the contact list to a file and restore contacts from a backup file.
+4. **Thay \(\psi(x)\) và \(\psi^*(x)\) vào biểu thức giá trị kỳ vọng**:
+   \[
+   \langle \hat{p}_x \rangle = \int_{-\infty}^{\infty} \phi(x) e^{-ip_0x/\hbar} \left( -i\hbar \frac{d}{dx} \right) \left[ \phi(x) e^{ip_0x/\hbar} \right] \, dx
+   \]
 
-## New Features Added
+5. **Tính toán đạo hàm bên trong tích phân**:
+   \[
+   \frac{d}{dx} \left[ \phi(x) e^{ip_0x/\hbar} \right] = \phi'(x) e^{ip_0x/\hbar} + \phi(x) \frac{ip_0}{\hbar} e^{ip_0x/\hbar}
+   \]
+   Do đó:
+   \[
+   \left( -i\hbar \frac{d}{dx} \right) \left[ \phi(x) e^{ip_0x/\hbar} \right] = -i\hbar \left( \phi'(x) e^{ip_0x/\hbar} + \phi(x) \frac{ip_0}{\hbar} e^{ip_0x/\hbar} \right)
+   \]
 
-In addition to the original functionalities provided by the source project, our team has added the following features:
+6. **Thay đạo hàm vào tích phân**:
+   \[
+   \langle \hat{p}_x \rangle = \int_{-\infty}^{\infty} \phi(x) e^{-ip_0x/\hbar} \left[ -i\hbar \phi'(x) e^{ip_0x/\hbar} - i p_0 \phi(x) e^{ip_0x/\hbar} \right] \, dx
+   \]
 
-- **Sort Contacts**: 
-  - Sort contacts by name.
-  - Sort contacts by age.
-- **Backup and Restore Contacts**: 
-  - Backup the contact list to an external file.
-  - Restore the contact list from a backup file.
-
-## Getting Started
-To get a local copy up and running, follow these simple steps.
-
-### Prerequisites
-
-- A C++ compiler (e.g., GCC, Clang, MSVC)
-- C++ Standard Library
-
-### Installation
-
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/yourusername/ContactManagementSystem.git
-2. Navigate to the project directory:
-  cd ContactManagementSystem
-3. Compile the project:
-  g++ -o ContactManagementSystem main.cpp
-4. Run the executable:
-  ./ContactManagementSystem
-
-## Usage
-Upon running the application, you will be presented with a menu to choose from the available functionalities. Select the desired option and follow the prompts to manage your contacts.
-
-## Contributing
-If you would like to contribute to this project, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch (git checkout -b feature/YourFeature).
-3. Commit your changes (git commit -m 'Add some feature').
-4. Push to the branch (git push origin feature/YourFeature).
-5. Open a pull request.
-
-## Acknowledgements
-This project was initially based on the work available at https://github.com/JeremyWu917/ContactManagementSystem.git
-We thank the original author for their contributions.
+7. **Phân tách tích phân**:
+   \[
+   \langle \hat{p}_x \rangle = \int_{-\infty}^{\infty} \phi(x) \left[ -i\hbar \phi'(x) \right] \, dx
